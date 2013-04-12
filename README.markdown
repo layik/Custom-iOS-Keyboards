@@ -1,3 +1,10 @@
+Original README is below.
+This version is adapted for Kurdish Sorani with minor alteratioins.
+Layout is based on www.kurditgroup.org's various keyboards.
+
+Unicode characters used will be added to this README soon.
+=========
+
 Custom Keyboards for iOS
 =========
 

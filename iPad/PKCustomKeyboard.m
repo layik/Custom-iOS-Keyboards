@@ -18,11 +18,11 @@
 @synthesize textView = _textView;
 
 #define kFont [UIFont fontWithName:@"GurmukhiMN" size:25]
-#define kAltLabel @"!?੧੨੩"
-#define kReturnLabel @"ਅਗਲਾ"
-#define kChar @[ @"◌ੌ", @"◌ੈ", @"◌ਾ", @"◌ੀ", @"◌ੂ", @"ਬ", @"ਹ", @"ਗ", @"ਦ", @"ਜ", @"ਡ", @"◌ੋ", @"◌ੇ", @"◌੍", @"ਿ◌", @"◌ੁ", @"ਪ", @"ਰ", @"ਕ", @"ਤ", @"ਚ", @"ਟ", @"◌ਂ", @"ੜ", @"ਮ", @"ਨ", @"ਵ", @"ਲ", @"ਸ", @"ਯ", @",", @".", @" " ]
-#define kChar_shift @[ @"ਔ", @"ਐ", @"ਆ", @"ਈ", @"ਊ", @"ਭ", @"ਙ", @"ਘ", @"ਧ", @"ਝ", @"ਢ", @"ਓ", @"ਏ", @"ਅ", @"ਇ", @"ਉ", @"ਫ", @"ੜ", @"ਖ", @"ਥ", @"ਛ", @"ਠ", @"◌ੰ", @"◌ੱ", @"ਣ", @"ਫ਼", @"ਜ਼", @"ਲ਼", @"ਸ਼", @"ਞ", @"॥", @"।", @" " ]
-#define kChar_alt @[ @"੧", @"੨", @"੩", @"੪", @"੫", @"੬", @"੭", @"੮", @"੯", @"੦", @"ੴ", @"-", @"/", @":", @";", @"(", @")", @"$", @"£", @"₹", @"&", @"@", @"ਖ਼", @"ਗ਼", @"ੳ", @"ੲ", @".", @",", @"?", @"!", @"\'", @"\"", @" " ]
+#define kAltLabel @"۱۲۳"
+#define kReturnLabel @"گەڕانەوە"
+#define kChar @[ @"ق", @"و", @"ە", @"ر", @"ت", @"ی", @"ئ", @"ح", @"ۆ", @"پ", @"ا", @"س", @"د", @"ف", @"گ", @"ھ", @"ژ", @"ک", @"ل", @"ز", @"خ", @"ج", @"ڤ", @"ب", @"ن", @"م", @".", @"،", @" " ]
+#define kChar_shift @[ @"ئ", @"وو", @"ة", @"ڕ", @"ط", @"ێ", @"ء", @"ع", @"ؤ", @"ث", @"آ", @"ش", @"ذ", @"إ", @"غ", @"ە", @"أ", @"ك", @"ڵ", @"ض", @"ص", @"ظ", @"ي", @"ڵا", @"»", @"«", @"؟", @"!", @" " ]
+#define kChar_alt @[ @"۱", @"۲", @"۳", @"٤", @"٥", @"٦", @"۷", @"۸", @"۹", @"٠", @"-", @"/", @":", @"؛", @"(", @")", @"£", @"&", @"@", @"\"", @".", @"،", @"؟", @"!",@"'", @"$", @"*", @"$", @" " ]
 
 - (id)init {
 	UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
@@ -111,7 +111,7 @@
 - (IBAction)shiftPressed:(id)sender {
 	[[UIDevice currentDevice] playInputClick];
 	if (!self.isShifted) {
-		[self.keyboardBackground setImage:[UIImage imageNamed:@"Keyboard_Shift.png"]];
+		[self.keyboardBackground setImage:[UIImage imageNamed:@"iPadKeyboardShifted.png"]];
 		[self loadCharactersWithArray:kChar_shift];
 		for (UIButton *b in self.altButtons)
 			[b setTitle:kAltLabel forState:UIControlStateNormal];
@@ -120,7 +120,7 @@
 
 - (IBAction)unShift {
 	if (self.isShifted) {
-		[self.keyboardBackground setImage:[UIImage imageNamed:@"Keyboard_Blank.png"]];
+		[self.keyboardBackground setImage:[UIImage imageNamed:@"iPadKeyboardNormal.png"]];
 		[self loadCharactersWithArray:kChar];
 	}
 	if (!self.isShifted)
@@ -131,7 +131,7 @@
 
 - (IBAction)altPressed:(id)sender {
     [[UIDevice currentDevice] playInputClick];
-	[self.keyboardBackground setImage:[UIImage imageNamed:@"Keyboard_Blank.png"]];
+	[self.keyboardBackground setImage:[UIImage imageNamed:@"iPadKeyboardNormal.png"]];
 	self.shifted = NO;
 	UIButton *button = (UIButton *)sender;
 	
@@ -172,7 +172,9 @@
     [[UIDevice currentDevice] playInputClick];
 	UIButton *button = (UIButton *)sender;
 	NSString *character = [NSString stringWithString:button.titleLabel.text];
-	
+	if ([character isEqualToString:@"ھ"]) {
+        character = @"ه";
+    }
 	if ([[character substringToIndex:1] isEqualToString:@"◌"])
 		character = [character substringFromIndex:1];
 	
@@ -180,7 +182,9 @@
 		character = [character substringToIndex:character.length - 1];
 	
 	[self.textView insertText:character];
-
+    if (self.delegate && [self.delegate respondsToSelector:@selector(characterPressed:)]) {
+        [self.delegate characterPressed:character];
+    }
 	if (self.isShifted)
 		[self unShift];
 	

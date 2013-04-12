@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+@protocol PKCustomKeyboardDelegate;
 
 @interface PKCustomKeyboard : UIView <UIInputViewAudioFeedback>
 
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *deleteButton;
 @property (strong, nonatomic) IBOutlet UIButton *dismissButton;
 @property (strong) id<UITextInput> textView;
+@property (strong) id<PKCustomKeyboardDelegate> delegate;
 
 - (IBAction)returnPressed:(id)sender;
 - (IBAction)shiftPressed:(id)sender;
@@ -27,5 +29,11 @@
 - (IBAction)deletePressed:(id)sender;
 - (IBAction)characterPressed:(id)sender;
 - (IBAction)unShift;
+
+@end
+
+@protocol PKCustomKeyboardDelegate <NSObject>
+
+- (void)characterPressed:(NSString *)stringCharacter;
 
 @end

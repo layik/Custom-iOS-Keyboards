@@ -10,12 +10,14 @@
 #import <QuartzCore/QuartzCore.h>
 
 #define kFont [UIFont fontWithName:@"GurmukhiMN" size:20]
-#define kAltLabel @"੧੨੩"
-#define kReturnLabel @"ਅਗਲਾ"
-#define kSpaceLabel @"ਖਾਲੀ ਥਾਂ"
-#define kChar @[ @"◌ੌ", @"◌ੈ", @"◌ਾ", @"◌ੀ", @"◌ੂ", @"ਬ", @"ਹ", @"ਗ", @"ਦ", @"ਜ", @"ਡ", @"◌ੋ", @"◌ੇ", @"◌੍", @"ਿ◌", @"◌ੁ", @"ਪ", @"ਰ", @"ਕ", @"ਤ", @"ਚ", @"ਟ", @"◌ਂ", @"ੜ", @"ਮ", @"ਨ", @"ਵ", @"ਲ", @"ਸ", @"ਯ" ]
-#define kChar_shift @[ @"ਔ", @"ਐ", @"ਆ", @"ਈ", @"ਊ", @"ਭ", @"ਙ", @"ਘ", @"ਧ", @"ਝ", @"ਢ", @"ਓ", @"ਏ", @"ਅ", @"ਇ", @"ਉ", @"ਫ", @"ੜ", @"ਖ", @"ਥ", @"ਛ", @"ਠ", @"◌ੰ", @"◌ੱ", @"ਣ", @"ਫ਼", @"ਜ਼", @"ਲ਼", @"ਸ਼", @"ਞ" ]
-#define kChar_alt @[ @"੧", @"੨", @"੩", @"੪", @"੫", @"੬", @"੭", @"੮", @"੯", @"੦", @"ੴ", @"-", @"/", @":", @";", @"(", @")", @"$", @"₹", @"&", @"@", @"\"", @"ਖ਼", @"ਗ਼", @"।", @"॥", @".", @",", @"?", @"!" ]
+#define kAltLabel @"۱۲۳"
+#define kReturnLabel @"گەڕانەوە"
+#define kSpaceLabel @"بۆشایی "
+#define kChar @[ @"ق", @"و", @"ە", @"ر", @"ت", @"ی", @"ئ", @"ح", @"ۆ", @"پ", @"ا", @"س", @"د", @"ف", @"گ", @"ھ", @"ژ", @"ک", @"ل", @"ز", @"خ", @"ج", @"ڤ", @"ب", @"ن", @"م" ]
+#define kChar_shift @[ @"ئ", @"وو", @"ة", @"ڕ", @"ط", @"ێ", @"ء", @"ع", @"ؤ", @"ث", @"آ", @"ش", @"ذ", @"إ", @"غ", @"ە", @"أ", @"ك", @"ڵ", @"ض", @"ص", @"ظ", @"ي", @"ڵا", @"»", @"«" ]
+#define kChar_alt @[ @"۱", @"۲", @"۳", @"٤", @"٥", @"٦", @"۷", @"۸", @"۹", @"٠", @"-", @"/", @":", @"؛", @"(", @")", @"£", @"&", @"@", @"\"", @".", @"،", @"؟", @"!",@"'", @"$", ]
+
+@protocol PMCustomKeyboardDelegate;
 
 @interface PMCustomKeyboard : UIView <UIInputViewAudioFeedback>
 
@@ -27,6 +29,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *deleteButton;
 @property (strong) id<UITextInput> textView;
 @property (strong, nonatomic) IBOutlet UIButton *spaceButton;
+@property (strong) id<PMCustomKeyboardDelegate> delegate;
 
 - (IBAction)returnPressed:(id)sender;
 - (IBAction)characterPressed:(id)sender;
@@ -35,5 +38,11 @@
 - (IBAction)deletePressed:(id)sender;
 - (IBAction)unShift;
 - (IBAction)spacePressed:(id)sender;
+
+@end
+
+@protocol PMCustomKeyboardDelegate <NSObject>
+
+- (void)characterPressed:(NSString *)stringCharacter;
 
 @end

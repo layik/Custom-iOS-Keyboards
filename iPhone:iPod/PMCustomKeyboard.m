@@ -92,6 +92,7 @@ enum {
 
 - (IBAction)returnPressed:(id)sender {
     [[UIDevice currentDevice] playInputClick];
+    [self.delegate characterPressed:@"\n"];
 	[self.textView insertText:@"\n"];
 	if ([self.textView isKindOfClass:[UITextView class]])
 		[[NSNotificationCenter defaultCenter] postNotificationName:UITextViewTextDidChangeNotification object:self.textView];
@@ -121,7 +122,8 @@ enum {
 
 - (IBAction)spacePressed:(id)sender {
     [[UIDevice currentDevice] playInputClick];
-		
+    
+    [self.delegate characterPressed:@" "];
 	[self.textView insertText:@" "];
     
 	if (self.isShifted)
@@ -141,7 +143,8 @@ enum {
 	
 	if ([button.titleLabel.text isEqualToString:kAltLabel]) {
 		[self loadCharactersWithArray:kChar_alt];
-        [self.altButton setTitle:[kChar objectAtIndex:18] forState:UIControlStateNormal];
+        //change back to ا ب ت
+        [self.altButton setTitle:@"ا ب ت" forState:UIControlStateNormal];
 	}
 	else {
 		[self loadCharactersWithArray:kChar];
@@ -150,6 +153,7 @@ enum {
 }
 
 - (IBAction)deletePressed:(id)sender {
+    [self.delegate characterPressed:@""];
     [[UIDevice currentDevice] playInputClick];
 	[self.textView deleteBackward];
 	[[NSNotificationCenter defaultCenter] postNotificationName:UITextViewTextDidChangeNotification
@@ -163,7 +167,9 @@ enum {
 - (IBAction)characterPressed:(id)sender {
 	UIButton *button = (UIButton *)sender;
 	NSString *character = [NSString stringWithString:button.titleLabel.text];
-	
+    if ([character isEqualToString:@"ھ"]) {
+        character = @"ه";
+    }
 	if ([[character substringToIndex:1] isEqualToString:@"◌"])
 		character = [character substringFromIndex:1];
 	
@@ -171,7 +177,9 @@ enum {
 		character = [character substringToIndex:character.length - 1];
 	
 	[self.textView insertText:character];
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(characterPressed:)]) {
+        [self.delegate characterPressed:character];
+    }
 	if (self.isShifted)
 		[self unShift];
 	
@@ -204,7 +212,7 @@ enum {
     else
         [text setFont:[UIFont fontWithName:kFont.fontName size:44]];
     
-    [text setTextAlignment:UITextAlignmentCenter];
+    [text setTextAlignment:NSTextAlignmentCenter];
     [text setBackgroundColor:[UIColor clearColor]];
     [text setShadowColor:[UIColor whiteColor]];
     [text setText:b.titleLabel.text];

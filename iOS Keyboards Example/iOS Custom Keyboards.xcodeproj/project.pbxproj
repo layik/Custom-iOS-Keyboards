@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1D46E3817187F530082A186 /* iPhone_keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = A1D46E3617187F530082A186 /* iPhone_keyboard.png */; };
+		A1D46E3917187F530082A186 /* iPhone_keyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1D46E3717187F530082A186 /* iPhone_keyboard@2x.png */; };
+		A1D46E3E171881950082A186 /* iPadKeyboardNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = A1D46E3A171881940082A186 /* iPadKeyboardNormal.png */; };
+		A1D46E3F171881950082A186 /* iPadKeyboardNormal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1D46E3B171881940082A186 /* iPadKeyboardNormal@2x.png */; };
+		A1D46E40171881950082A186 /* iPadKeyboardShifted.png in Resources */ = {isa = PBXBuildFile; fileRef = A1D46E3C171881940082A186 /* iPadKeyboardShifted.png */; };
+		A1D46E41171881950082A186 /* iPadKeyboardShifted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1D46E3D171881950082A186 /* iPadKeyboardShifted@2x.png */; };
 		A36611631649D4B500088AF4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36611621649D4B500088AF4 /* UIKit.framework */; };
 		A36611651649D4B500088AF4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36611641649D4B500088AF4 /* Foundation.framework */; };
 		A36611671649D4B500088AF4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36611661649D4B500088AF4 /* CoreGraphics.framework */; };
@@ -19,10 +25,6 @@
 		A366117C1649D4B500088AF4 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A366117A1649D4B500088AF4 /* MainStoryboard_iPhone.storyboard */; };
 		A366117F1649D4B500088AF4 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A366117D1649D4B500088AF4 /* MainStoryboard_iPad.storyboard */; };
 		A36611821649D4B500088AF4 /* UTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A36611811649D4B500088AF4 /* UTViewController.m */; };
-		A36611A01649D50200088AF4 /* Keyboard_Blank.png in Resources */ = {isa = PBXBuildFile; fileRef = A366118E1649D50200088AF4 /* Keyboard_Blank.png */; };
-		A36611A11649D50200088AF4 /* Keyboard_Blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A366118F1649D50200088AF4 /* Keyboard_Blank@2x.png */; };
-		A36611A21649D50200088AF4 /* Keyboard_Shift.png in Resources */ = {isa = PBXBuildFile; fileRef = A36611901649D50200088AF4 /* Keyboard_Shift.png */; };
-		A36611A31649D50200088AF4 /* Keyboard_Shift@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A36611911649D50200088AF4 /* Keyboard_Shift@2x.png */; };
 		A36611A41649D50200088AF4 /* PKCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A36611931649D50200088AF4 /* PKCustomKeyboard.m */; };
 		A36611A51649D50200088AF4 /* PKCustomKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = A36611941649D50200088AF4 /* PKCustomKeyboard.xib */; };
 		A36611AB1649D50200088AF4 /* PMCustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A366119C1649D50200088AF4 /* PMCustomKeyboard.m */; };
@@ -30,13 +32,17 @@
 		A3F070091649D8FE007C389B /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F070021649D8FE007C389B /* delete.png */; };
 		A3F0700A1649D8FE007C389B /* delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F070031649D8FE007C389B /* delete@2x.png */; };
 		A3F0700B1649D8FE007C389B /* glow.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F070041649D8FE007C389B /* glow.png */; };
-		A3F0700C1649D8FE007C389B /* iOS_Keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F070051649D8FE007C389B /* iOS_Keyboard.png */; };
-		A3F0700D1649D8FE007C389B /* iOS_Keyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F070061649D8FE007C389B /* iOS_Keyboard@2x.png */; };
 		A3F0700E1649D8FE007C389B /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F070071649D8FE007C389B /* return.png */; };
 		A3F0700F1649D8FE007C389B /* return@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F070081649D8FE007C389B /* return@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A1D46E3617187F530082A186 /* iPhone_keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPhone_keyboard.png; path = Images/iPhone_keyboard.png; sourceTree = "<group>"; };
+		A1D46E3717187F530082A186 /* iPhone_keyboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPhone_keyboard@2x.png"; path = "Images/iPhone_keyboard@2x.png"; sourceTree = "<group>"; };
+		A1D46E3A171881940082A186 /* iPadKeyboardNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadKeyboardNormal.png; sourceTree = "<group>"; };
+		A1D46E3B171881940082A186 /* iPadKeyboardNormal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPadKeyboardNormal@2x.png"; sourceTree = "<group>"; };
+		A1D46E3C171881940082A186 /* iPadKeyboardShifted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadKeyboardShifted.png; sourceTree = "<group>"; };
+		A1D46E3D171881950082A186 /* iPadKeyboardShifted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPadKeyboardShifted@2x.png"; sourceTree = "<group>"; };
 		A366115E1649D4B500088AF4 /* iOS Custom Keyboards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Custom Keyboards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A36611621649D4B500088AF4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A36611641649D4B500088AF4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -54,10 +60,6 @@
 		A366117E1649D4B500088AF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		A36611801649D4B500088AF4 /* UTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UTViewController.h; sourceTree = "<group>"; };
 		A36611811649D4B500088AF4 /* UTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UTViewController.m; sourceTree = "<group>"; };
-		A366118E1649D50200088AF4 /* Keyboard_Blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Keyboard_Blank.png; sourceTree = "<group>"; };
-		A366118F1649D50200088AF4 /* Keyboard_Blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Keyboard_Blank@2x.png"; sourceTree = "<group>"; };
-		A36611901649D50200088AF4 /* Keyboard_Shift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Keyboard_Shift.png; sourceTree = "<group>"; };
-		A36611911649D50200088AF4 /* Keyboard_Shift@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Keyboard_Shift@2x.png"; sourceTree = "<group>"; };
 		A36611921649D50200088AF4 /* PKCustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKCustomKeyboard.h; sourceTree = "<group>"; };
 		A36611931649D50200088AF4 /* PKCustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKCustomKeyboard.m; sourceTree = "<group>"; };
 		A36611941649D50200088AF4 /* PKCustomKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PKCustomKeyboard.xib; sourceTree = "<group>"; };
@@ -67,8 +69,6 @@
 		A3F070021649D8FE007C389B /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delete.png; path = Images/delete.png; sourceTree = "<group>"; };
 		A3F070031649D8FE007C389B /* delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "delete@2x.png"; path = "Images/delete@2x.png"; sourceTree = "<group>"; };
 		A3F070041649D8FE007C389B /* glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glow.png; path = Images/glow.png; sourceTree = "<group>"; };
-		A3F070051649D8FE007C389B /* iOS_Keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOS_Keyboard.png; path = Images/iOS_Keyboard.png; sourceTree = "<group>"; };
-		A3F070061649D8FE007C389B /* iOS_Keyboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iOS_Keyboard@2x.png"; path = "Images/iOS_Keyboard@2x.png"; sourceTree = "<group>"; };
 		A3F070071649D8FE007C389B /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = return.png; path = Images/return.png; sourceTree = "<group>"; };
 		A3F070081649D8FE007C389B /* return@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "return@2x.png"; path = "Images/return@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,10 +159,10 @@
 		A366118D1649D50200088AF4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				A366118E1649D50200088AF4 /* Keyboard_Blank.png */,
-				A366118F1649D50200088AF4 /* Keyboard_Blank@2x.png */,
-				A36611901649D50200088AF4 /* Keyboard_Shift.png */,
-				A36611911649D50200088AF4 /* Keyboard_Shift@2x.png */,
+				A1D46E3A171881940082A186 /* iPadKeyboardNormal.png */,
+				A1D46E3B171881940082A186 /* iPadKeyboardNormal@2x.png */,
+				A1D46E3C171881940082A186 /* iPadKeyboardShifted.png */,
+				A1D46E3D171881950082A186 /* iPadKeyboardShifted@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -182,11 +182,11 @@
 		A36611B01649D8B400088AF4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A1D46E3617187F530082A186 /* iPhone_keyboard.png */,
+				A1D46E3717187F530082A186 /* iPhone_keyboard@2x.png */,
 				A3F070021649D8FE007C389B /* delete.png */,
 				A3F070031649D8FE007C389B /* delete@2x.png */,
 				A3F070041649D8FE007C389B /* glow.png */,
-				A3F070051649D8FE007C389B /* iOS_Keyboard.png */,
-				A3F070061649D8FE007C389B /* iOS_Keyboard@2x.png */,
 				A3F070071649D8FE007C389B /* return.png */,
 				A3F070081649D8FE007C389B /* return@2x.png */,
 			);
@@ -251,19 +251,19 @@
 				A36611791649D4B500088AF4 /* Default-568h@2x.png in Resources */,
 				A366117C1649D4B500088AF4 /* MainStoryboard_iPhone.storyboard in Resources */,
 				A366117F1649D4B500088AF4 /* MainStoryboard_iPad.storyboard in Resources */,
-				A36611A01649D50200088AF4 /* Keyboard_Blank.png in Resources */,
-				A36611A11649D50200088AF4 /* Keyboard_Blank@2x.png in Resources */,
-				A36611A21649D50200088AF4 /* Keyboard_Shift.png in Resources */,
-				A36611A31649D50200088AF4 /* Keyboard_Shift@2x.png in Resources */,
 				A36611A51649D50200088AF4 /* PKCustomKeyboard.xib in Resources */,
 				A36611AC1649D50200088AF4 /* PMCustomKeyboard.xib in Resources */,
 				A3F070091649D8FE007C389B /* delete.png in Resources */,
 				A3F0700A1649D8FE007C389B /* delete@2x.png in Resources */,
 				A3F0700B1649D8FE007C389B /* glow.png in Resources */,
-				A3F0700C1649D8FE007C389B /* iOS_Keyboard.png in Resources */,
-				A3F0700D1649D8FE007C389B /* iOS_Keyboard@2x.png in Resources */,
 				A3F0700E1649D8FE007C389B /* return.png in Resources */,
 				A3F0700F1649D8FE007C389B /* return@2x.png in Resources */,
+				A1D46E3817187F530082A186 /* iPhone_keyboard.png in Resources */,
+				A1D46E3917187F530082A186 /* iPhone_keyboard@2x.png in Resources */,
+				A1D46E3E171881950082A186 /* iPadKeyboardNormal.png in Resources */,
+				A1D46E3F171881950082A186 /* iPadKeyboardNormal@2x.png in Resources */,
+				A1D46E40171881950082A186 /* iPadKeyboardShifted.png in Resources */,
+				A1D46E41171881950082A186 /* iPadKeyboardShifted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
