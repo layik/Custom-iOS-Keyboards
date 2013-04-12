@@ -1,5 +1,5 @@
 Original README is below.
-This version is adapted for Kurdish Sorani with minor alteratioins.
+This version is adapted for Kurdish Sorani with minor alterations.
 Layout is based on Kurdish QWERTY of www.kurditgroup.org. Unicode characters used will be added to this README time permitting.
 
 =========
