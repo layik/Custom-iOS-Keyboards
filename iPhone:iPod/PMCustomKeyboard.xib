@@ -1437,7 +1437,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">133</int>
+			<int key="maxID">138</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1446,6 +1446,7 @@
 					<string key="superclassName">UIView</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="altPressed:">id</string>
+						<string key="characterOnlyPressed:">id</string>
 						<string key="characterPressed:">id</string>
 						<string key="deletePressed:">id</string>
 						<string key="returnPressed:">id</string>
@@ -1456,6 +1457,10 @@
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="altPressed:">
 							<string key="name">altPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="characterOnlyPressed:">
+							<string key="name">characterOnlyPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="characterPressed:">

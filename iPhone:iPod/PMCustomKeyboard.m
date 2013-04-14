@@ -134,19 +134,37 @@ enum {
 	else if ([self.textView isKindOfClass:[UITextField class]])
 		[[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:self.textView];
 }
-
+- (IBAction)characterOnlyPressed:(id)sender {
+    UIButton *theSender = (UIButton*)sender;
+	[[UIDevice currentDevice] playInputClick];
+    [self loadCharactersWithArray:kChar_alt_shift];
+    if ([theSender.titleLabel.text isEqualToString:kAltLabel]) {
+        [self altPressed:sender];
+        return;
+    }
+    [self.shiftButton setTitle:kAltLabel forState:UIControlStateNormal];
+}
 - (IBAction)altPressed:(id)sender {
     [[UIDevice currentDevice] playInputClick];
 	[self.shiftButton setBackgroundImage:nil forState:UIControlStateNormal];
 	self.shifted = NO;
 	UIButton *button = (UIButton *)sender;
-	
 	if ([button.titleLabel.text isEqualToString:kAltLabel]) {
+        [self.keyboardBackground setImage:[UIImage imageNamed:@"iPhone_keyboard_char_only.png"]];
+        //change shift to char only
+        [self.shiftButton setTitle:kCharOnlyLabel forState:UIControlStateNormal];
+        [self.shiftButton removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
+        [self.shiftButton addTarget:self action:@selector(characterOnlyPressed:) forControlEvents:UIControlEventTouchUpInside];
 		[self loadCharactersWithArray:kChar_alt];
         //change back to ا ب ت
-        [self.altButton setTitle:@"ا ب ت" forState:UIControlStateNormal];
+        [self.altButton setTitle:kNormal forState:UIControlStateNormal];
 	}
 	else {
+        [self.keyboardBackground setImage:[UIImage imageNamed:@"iPhone_keyboard.png"]];
+        [self.shiftButton setTitle:@"" forState:UIControlStateNormal];
+        [self.shiftButton removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
+        [self.shiftButton addTarget:self action:@selector(shiftPressed:) forControlEvents:UIControlEventTouchDown];
+        [self.shiftButton addTarget:self action:@selector(unShift) forControlEvents:UIControlEventTouchUpInside];
 		[self loadCharactersWithArray:kChar];
         [self.altButton setTitle:kAltLabel forState:UIControlStateNormal];
 	}

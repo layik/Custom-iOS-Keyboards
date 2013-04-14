@@ -19,10 +19,13 @@
 
 #define kFont [UIFont fontWithName:@"GurmukhiMN" size:25]
 #define kAltLabel @"۱۲۳"
+#define kNormal @"ا ب ت"
+#define kCharOnlyLabel @"#+="
 #define kReturnLabel @"گەڕانەوە"
 #define kChar @[ @"ق", @"و", @"ە", @"ر", @"ت", @"ی", @"ئ", @"ح", @"ۆ", @"پ", @"ا", @"س", @"د", @"ف", @"گ", @"ھ", @"ژ", @"ک", @"ل", @"ز", @"خ", @"ج", @"ڤ", @"ب", @"ن", @"م", @".", @"،", @" " ]
 #define kChar_shift @[ @"ئ", @"وو", @"ة", @"ڕ", @"ط", @"ێ", @"ء", @"ع", @"ؤ", @"ث", @"آ", @"ش", @"ذ", @"إ", @"غ", @"ە", @"أ", @"ك", @"ڵ", @"ض", @"ص", @"چ", @"ظ", @"ي", @"»", @"«", @"؟", @"!", @" " ]
 #define kChar_alt @[ @"۱", @"۲", @"۳", @"٤", @"٥", @"٦", @"۷", @"۸", @"۹", @"٠", @"-", @"/", @":", @"؛", @"(", @")", @"£", @"&", @"@", @"\"", @".", @"،", @"؟", @"!",@"'", @"$", @"*", @"$", @" " ]
+#define kChar_alt_shift @[ @"[", @"]", @"{", @"}", @"#", @"%", @"^", @"*", @"+", @"=", @"_", @"\\", @"|", @"~", @"<", @">", @"€", @"$", @"¥", @"\"", @".", @"،", @"؟", @"!",@"'", @"$", @"*", @"$", @" " ]
 
 - (id)init {
 	UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
@@ -128,22 +131,48 @@
 	else
 		self.shifted = NO;
 }
+- (IBAction)characterOnlyPressed:(id)sender {
+    UIButton *theSender = (UIButton*)sender;
+	[[UIDevice currentDevice] playInputClick];
+    [self loadCharactersWithArray:kChar_alt_shift];
+    if ([theSender.titleLabel.text isEqualToString:kAltLabel]) {
+        for (UIButton *b in self.shiftButtons){
+            [b setTitle:kCharOnlyLabel forState:UIControlStateNormal];
+        }
+        [self altPressed:sender];
+        return;
+    }
+    for (UIButton *b in self.shiftButtons){
+        [b setTitle:kAltLabel forState:UIControlStateNormal];
+    }
+}
 
 - (IBAction)altPressed:(id)sender {
     [[UIDevice currentDevice] playInputClick];
-	[self.keyboardBackground setImage:[UIImage imageNamed:@"iPadKeyboardNormal.png"]];
 	self.shifted = NO;
 	UIButton *button = (UIButton *)sender;
-	
 	if ([button.titleLabel.text isEqualToString:kAltLabel]) {
+        [self.keyboardBackground setImage:[UIImage imageNamed:@"iPadKeyboardCharsOnly.png"]];
 		[self loadCharactersWithArray:kChar_alt];
 		for (UIButton *b in self.altButtons)
-			[b setTitle:[kChar objectAtIndex:18] forState:UIControlStateNormal];
+			[b setTitle:kNormal forState:UIControlStateNormal];
+        for (UIButton *b in self.shiftButtons) {
+            [b setTitle:kCharOnlyLabel forState:UIControlStateNormal];
+            [b removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
+            [b addTarget:self action:@selector(characterOnlyPressed:) forControlEvents:UIControlEventTouchUpInside];
+        }
 	}
 	else {
+        [self.keyboardBackground setImage:[UIImage imageNamed:@"iPadKeyboardNormal.png"]];
 		[self loadCharactersWithArray:kChar];
 		for (UIButton *b in self.altButtons)
 			[b setTitle:kAltLabel forState:UIControlStateNormal];
+        for (UIButton *b in self.shiftButtons) {
+            [b setTitle:@"" forState:UIControlStateNormal];
+            [b removeTarget:self action:nil forControlEvents:UIControlEventAllEvents];
+            [b addTarget:self action:@selector(shiftPressed:) forControlEvents:UIControlEventTouchDown];
+            [b addTarget:self action:@selector(unShift) forControlEvents:UIControlEventTouchUpInside];        }
+
 	}
 }
 

@@ -28,6 +28,7 @@
 - (IBAction)dismissPressed:(id)sender;
 - (IBAction)deletePressed:(id)sender;
 - (IBAction)characterPressed:(id)sender;
+- (IBAction)characterOnlyPressed:(id)sender;
 - (IBAction)unShift;
 
 @end
