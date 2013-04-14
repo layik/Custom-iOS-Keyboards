@@ -1,6 +1,7 @@
 Original README is below.
 This version is adapted for Kurdish Sorani with minor alterations.
 Layout is based on Kurdish QWERTY of www.kurditgroup.org. Unicode characters used will be added to this README time permitting.
+One extra layer has been added to the keyboard (a character only state) which could be added to the master branch.
 
 =========
 Custom Keyboards for iOS
