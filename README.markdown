@@ -1,3 +1,6 @@
+# RETIRED
+There is now (iOS8+) system support for third party keyboards. Thus https://itunes.apple.com/us/app/kurdish-keyboard/id928647744?mt=8
+
 Original README is below.
 This version is adapted for Kurdish Sorani with minor alterations.
 Layout is based on Kurdish QWERTY of www.kurditgroup.org. Unicode characters used will be added to this README time permitting.
